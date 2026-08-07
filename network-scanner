@@ -1,0 +1,26 @@
+# Network Scanner & Service Enumerator
+
+A multi-threaded TCP port scanner with service identification and banner grabbing, written in Python using raw sockets.
+
+## What it does
+
+- Scans a target host across a specified port range using concurrent worker threads
+- Confirms open ports by completing the TCP three-way handshake
+- Identifies common services by port and attempts active banner grabbing
+- Reports results in a clean, readable format
+
+## Why I built it
+
+I wanted to understand port scanning from first principles rather than just running Nmap. Building this taught me how the TCP handshake works at the socket level, how service banners can be used for fingerprinting, and how to coordinate concurrent work safely across threads using a queue and locks.
+
+## Usage
+
+```bash
+# Scan the top 1024 ports with default threading
+python3 scanner.py 192.168.1.1
+
+# Scan specific ports
+python3 scanner.py 192.168.1.1 -p 22,80,443,8080
+
+# Scan a full range with more threads
+python3 scanner.py scanme.nmap.org -p 1-65535 -t 200
