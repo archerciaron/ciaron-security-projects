@@ -44,7 +44,7 @@ This tool is for educational purposes and authorised security assessments only. 
 
 ## The tools
 
-### [Network Scanner & Service Enumerator](./network-scanner)
+### [Network Scanner & Service Enumerator](./network-scannerr)
 A multi-threaded TCP port scanner with banner grabbing, built on raw sockets. Demonstrates the TCP handshake, socket programming, and safe concurrency with a thread pool and queue.
 
 ### [Subdomain Enumerator](./subdomain-enum)
