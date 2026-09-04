@@ -41,3 +41,12 @@ Full TCP connect scanning is used here for reliability and clarity. In a real en
 ## Disclaimer
 
 This tool is for educational purposes and authorised security assessments only. Only scan systems you own or have explicit written permission to test.
+
+## The tools
+
+### [Network Scanner & Service Enumerator](./network-scanner)
+A multi-threaded TCP port scanner with banner grabbing, built on raw sockets. Demonstrates the TCP handshake, socket programming, and safe concurrency with a thread pool and queue.
+
+### [Subdomain Enumerator](./subdomain-enum)
+A threaded DNS enumeration tool for the reconnaissance phase. Demonstrates DNS resolution, attack-surface mapping, and efficient concurrent network I/O.
+
