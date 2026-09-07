@@ -4,7 +4,7 @@ A collection of security tools I built from scratch in Python and Bash to deepen
 
 ## About me
 
-I'm a cyber security professional with 3+ years of experience in a regulated financial services environment, currently focused on offensive security. I'm working through the HackTheBox CPTS certification and hold CompTIA Network+ and Security+. I built these tools to turn the theory I use day to day into working code — and because I genuinely enjoy understanding systems below the abstraction layer.
+I'm a cyber security professional with 3+ years of experience in a regulated financial services environment, currently focused on offensive security. I'm working through the HackTheBox CPTS certification and hold CompTIA Network+ and Security+. I built these tools to turn the theory I use day to day into working code and because I genuinely enjoy understanding systems below the abstraction layer.
 
 ## The tools
 
