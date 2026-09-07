@@ -8,11 +8,11 @@ I'm a cyber security professional with 3+ years of experience in a regulated fin
 
 ## The tools
 
-### [Network Scanner & Service Enumerator](./network-scannerr)
+### [Network Scanner & Service Enumerator](./network-scanner)
 A multi-threaded TCP port scanner with banner grabbing, built on raw sockets. Demonstrates the TCP handshake, socket programming, and safe concurrency with a thread pool and queue.
 
-### [Web Vulnerability Scanner](./web-vuln-scanner)
-Tests web parameters for reflected XSS, error-based SQL injection, and path traversal. Demonstrates adversarial thinking in code and the professional discipline of flagging findings for manual verification.
+### [Subdomain Enumerator](./subdomain-enum)
+A threaded DNS enumeration tool for the reconnaissance phase. Demonstrates DNS resolution, attack-surface mapping, and efficient concurrent network I/O.
 
 ### [Log Analyser & Anomaly Detector](./log-analyser)
 The defensive counterpart to the offensive tools — parses web server logs and detects attack signatures, brute force, scanning, and volume anomalies. Demonstrates detection-engineering thinking and the two-sided relationship between attack and defence.
