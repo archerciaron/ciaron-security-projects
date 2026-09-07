@@ -1,52 +1,39 @@
-# Network Scanner & Service Enumerator
+# Security Tools Portfolio
 
-A multi-threaded TCP port scanner with service identification and banner grabbing, written in Python using raw sockets.
+A collection of security tools I built from scratch in Python and Bash to deepen my hands-on offensive and defensive security skills. Each tool implements a technique from first principles rather than wrapping an existing framework, so I understand not just *what* it does but *why* it works.
 
-## What it does
+## About me
 
-- Scans a target host across a specified port range using concurrent worker threads
-- Confirms open ports by completing the TCP three-way handshake
-- Identifies common services by port and attempts active banner grabbing
-- Reports results in a clean, readable format
-
-## Why I built it
-
-I wanted to understand port scanning from first principles rather than just running Nmap. Building this taught me how the TCP handshake works at the socket level, how service banners can be used for fingerprinting, and how to coordinate concurrent work safely across threads using a queue and locks.
-
-## Usage
-
-```bash
-# Scan the top 1024 ports with default threading
-python3 scanner.py 192.168.1.1
-
-# Scan specific ports
-python3 scanner.py 192.168.1.1 -p 22,80,443,8080
-
-# Scan a full range with more threads
-python3 scanner.py scanme.nmap.org -p 1-65535 -t 200
-```
-
-## Key concepts demonstrated
-
-- **Socket programming** — raw TCP connections using Python's `socket` library
-- **The TCP handshake** — `connect_ex()` completes SYN → SYN-ACK → ACK to confirm open ports
-- **Concurrency** — a thread pool pulling from a shared `Queue`, with locks to protect shared state
-- **Banner grabbing** — reading service announcements for fingerprinting
-- **Graceful error handling** — distinguishing closed ports, unreachable hosts, and resolution failures
-
-## Design notes
-
-Full TCP connect scanning is used here for reliability and clarity. In a real engagement a SYN (half-open) scan is stealthier because it never completes the handshake — a natural next extension of this tool would be raw packet crafting with `scapy` to implement SYN scanning.
-
-## Disclaimer
-
-This tool is for educational purposes and authorised security assessments only. Only scan systems you own or have explicit written permission to test.
+I'm a cyber security professional with 3+ years of experience in a regulated financial services environment, currently focused on offensive security. I'm working through the HackTheBox CPTS certification and hold CompTIA Network+ and Security+. I built these tools to turn the theory I use day to day into working code — and because I genuinely enjoy understanding systems below the abstraction layer.
 
 ## The tools
 
 ### [Network Scanner & Service Enumerator](./network-scannerr)
 A multi-threaded TCP port scanner with banner grabbing, built on raw sockets. Demonstrates the TCP handshake, socket programming, and safe concurrency with a thread pool and queue.
 
-### [Subdomain Enumerator](./subdomain-enum)
-A threaded DNS enumeration tool for the reconnaissance phase. Demonstrates DNS resolution, attack-surface mapping, and efficient concurrent network I/O.
+### [Web Vulnerability Scanner](./web-vuln-scanner)
+Tests web parameters for reflected XSS, error-based SQL injection, and path traversal. Demonstrates adversarial thinking in code and the professional discipline of flagging findings for manual verification.
 
+### [Log Analyser & Anomaly Detector](./log-analyser)
+The defensive counterpart to the offensive tools — parses web server logs and detects attack signatures, brute force, scanning, and volume anomalies. Demonstrates detection-engineering thinking and the two-sided relationship between attack and defence.
+
+## Themes across the portfolio
+
+- **Built from first principles** — each tool implements its core technique directly rather than calling a ready-made library that does the work
+- **Both sides of security** — offensive tooling (scanning, enumeration, cracking) alongside defensive tooling (log analysis, detection)
+- **Professional discipline** — automated findings are flagged for manual verification, mirroring how real engagements are run
+- **Systems thinking** — sockets, DNS, the TCP handshake, hashing, and Linux internals, all handled explicitly
+
+## Running the tools
+
+All Python tools require Python 3.6+ and use only the standard library except the web scanner, which uses `requests`:
+
+```bash
+pip install requests
+```
+
+Each tool has its own README with usage examples and an explanation of the concepts it demonstrates.
+
+## Responsible use
+
+Every tool in this repository is for educational purposes and authorised security assessments only. They should only ever be run against systems you own or have explicit written permission to test. Understanding how these techniques work is what makes both better attackers and better defenders.
